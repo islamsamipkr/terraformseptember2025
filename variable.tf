@@ -23,6 +23,6 @@ variable "millenium"{
   default=2000
 }
 variable "truefalse"{
-  type= boolean
+  type= bool
   default=true
 }
