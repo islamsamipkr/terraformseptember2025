@@ -18,3 +18,7 @@ variable "batchyear"{
   type =string
   default="2025"
 }
+variable "millenium"{
+  type=number
+  default=2000
+}
