@@ -22,3 +22,7 @@ variable "millenium"{
   type=number
   default=2000
 }
+variable "truefalse"{
+  type= boolean
+  default=true
+}
