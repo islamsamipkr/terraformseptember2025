@@ -16,5 +16,5 @@ variable "mcitvariable"{
 }
 variable "batchyear"{
   type =number
-  default=2025
+  default="2025"
 }
