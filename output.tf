@@ -1,3 +1,7 @@
 output "mcitoutput"{
-    value=var.
+    value=var.mcitvariable
+}
+
+output "mcityear"{
+    value=var.mcityear
 }
