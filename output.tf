@@ -8,3 +8,6 @@ output "mcityear"{
 output "milleniumoutput"{
     value=var.millenium
 }
+output "booleanoutput"{
+    value=var.truefalse
+}
