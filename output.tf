@@ -3,5 +3,5 @@ output "mcitoutput"{
 }
 
 output "mcityear"{
-    value=var.mcityear
+    value=var.batchyear
 }
