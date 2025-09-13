@@ -11,3 +11,6 @@ output "milleniumoutput"{
 output "booleanoutput"{
     value=var.truefalse
 }
+output "listoffruitsoutput"{
+    value=var.listoffruits
+}
