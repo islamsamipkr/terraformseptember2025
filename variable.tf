@@ -28,5 +28,5 @@ variable "truefalse"{
 }
 variable "listoffruits"{
   type=list(string)
-  default=["apple","banana","kiwi]
+  default=["apple","banana","kiwi"]
 }
