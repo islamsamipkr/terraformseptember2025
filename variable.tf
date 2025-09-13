@@ -26,3 +26,7 @@ variable "truefalse"{
   type= bool
   default=true
 }
+variable "listoffruits"{
+  type=list(string)
+  default=["apple","banana","kiwi]
+}
