@@ -28,4 +28,11 @@ output "clean_name" {
   value = replace("app-prod-01", "prod", "staging")
 }
 # → "app-staging-01"
+output "application_name" {
+  value = local.full_name
+}
+
+output "csv_items" {
+  value = join(",", var.items)
+}
 
