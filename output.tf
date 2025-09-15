@@ -14,3 +14,13 @@ output "booleanoutput"{
 output "listoffruitsoutput"{
     value=var.listoffruits
 }
+
+output "csv" {
+  value = join(",", ["one", "two", "three"])
+}
+# → "one,two,three"
+
+output "list" {
+  value = split("-", "app-prod-01")
+}
+# → ["app", "prod", "01"]
