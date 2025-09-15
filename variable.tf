@@ -33,3 +33,7 @@ variable "listoffruits"{
 variable "environment" {
   default = "production"
 }
+variable "app_name" {
+  type    = string
+  default = "myapp"
+}
