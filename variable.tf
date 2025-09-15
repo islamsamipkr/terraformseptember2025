@@ -37,3 +37,7 @@ variable "app_name" {
   type    = string
   default = "myapp"
 }
+variable "items" {
+  type    = list(string)
+  default = ["one", "two", "three"]
+}
