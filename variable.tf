@@ -30,3 +30,6 @@ variable "listoffruits"{
   type=list(string)
   default=["apple","banana","kiwi"]
 }
+variable "environment" {
+  default = "production"
+}
