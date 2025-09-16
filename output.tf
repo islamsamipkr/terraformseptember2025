@@ -40,3 +40,7 @@ output "csv_items" {
   value = join(",", var.items)
 }
 
+output "first_word" {
+  value = local.first_word # "Inception"
+}
+
