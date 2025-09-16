@@ -46,3 +46,7 @@ variable "server_name" {
   default = "app-prod-01"
 }
 
+variable "phrase" {
+  default = "InceptionMovie"
+}
+
