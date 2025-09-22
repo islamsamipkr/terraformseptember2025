@@ -1,3 +1,8 @@
+variable "webapp_names" {
+  type    = list(string)
+  default = ["app1", "app2", "app3", "app4", "app5"]
+}
+
 resource "azurerm_resource_group" "mcitazurerm" {
   name     = "septemberazurerm"
   location = "Canada Central"
@@ -11,15 +16,9 @@ resource "azurerm_service_plan" "mcitsplan" {
   sku_name            = "P1v2"
 }
 
-# Define a list of app names
-variable "webapp_names" {
-  type    = list(string)
-  default = ["app1", "app2", "app3", "app4", "app5"]
-}
 
 resource "azurerm_linux_web_app" "mcitlinuxwebapp" {
   for_each            = toset(var.webapp_names)
-
   name                = each.key
   resource_group_name = azurerm_resource_group.mcitazurerm.name
   location            = azurerm_service_plan.mcitazurerm.location
