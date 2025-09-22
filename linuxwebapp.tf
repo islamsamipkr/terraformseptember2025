@@ -21,7 +21,7 @@ resource "azurerm_linux_web_app" "mcitlinuxwebapp" {
   for_each            = toset(var.webapp_names)
   name                = each.key
   resource_group_name = azurerm_resource_group.mcitazurerm.name
-  location            = azurerm_service_plan.mcitazurerm.location
+  location            = azurerm_resource_group.mcitazurerm.location
   service_plan_id     = azurerm_service_plan.mcitsplan.id
 
   site_config {}
