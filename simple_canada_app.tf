@@ -22,13 +22,13 @@ resource "azurerm_service_plan" "canada_linux_plan" {
 }
 
 locals {
-  canada_map = {
+  canada_map_simple = {
     for item in var.canada_items : item => item
   }
 }
 
 resource "azurerm_linux_web_app" "canada_apps_simple" {
-  for_each            = local.canada_map
+  for_each            = local.canada_map_simple
   name                = "wa-canada-${each.value}"
   location            = azurerm_service_plan.canada_linux_plan.location
   resource_group_name = azurerm_resource_group.canada_rg.name
