@@ -170,3 +170,4 @@ output "app_names" {
     canada = [for app in azurerm_linux_web_app.canada_apps : app.name]
     us     = [for app in azurerm_windows_web_app.us_apps : app.name]
   }
+}
