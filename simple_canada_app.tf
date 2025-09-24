@@ -27,7 +27,7 @@ locals {
   }
 }
 
-resource "azurerm_linux_web_app" "canada_apps" {
+resource "azurerm_linux_web_app" "canada_apps_simple" {
   for_each            = local.canada_map
   name                = "wa-canada-${each.value}"
   location            = azurerm_service_plan.canada_linux_plan.location
@@ -51,5 +51,5 @@ resource "azurerm_linux_web_app" "canada_apps" {
 }
 
 output "canada_app_names" {
-  value = [for app in azurerm_linux_web_app.canada_apps : app.name]
+  value = [for app in azurerm_linux_web_app.canada_apps_simple : app.name]
 }
