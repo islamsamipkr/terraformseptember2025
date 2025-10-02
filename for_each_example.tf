@@ -15,10 +15,10 @@ variable "apps_by_region" {
 # -----------------------------------------
 # Resource Groups (one per region)
 # -----------------------------------------
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "mcitrg" {
   for_each = var.apps_by_region
 
-  name     = "rg-${replace(lower(each.key), " ", "-")}"
+  name     = "mcitrg-${replace(lower(each.key), " ", "-")}"
   location = each.key
 }
 
@@ -28,8 +28,8 @@ resource "azurerm_resource_group" "rg" {
 resource "azurerm_service_plan" "plan" {
   for_each            = var.apps_by_region
   name                = "asp-${replace(lower(each.key), " ", "-")}"
-  location            = azurerm_resource_group.rg[each.key].location
-  resource_group_name = azurerm_resource_group.rg[each.key].name
+  location            = azurerm_resource_group.mcitrg[each.key].location
+  resource_group_name = azurerm_resource_group.mcitrg[each.key].name
 
   os_type      = "Windows"
   sku_name     = each.value.sku_name
@@ -43,8 +43,8 @@ resource "azurerm_windows_web_app" "app" {
   for_each            = var.apps_by_region
 
   name                = each.value.app_name       # must be globally unique
-  location            = azurerm_resource_group.rg[each.key].location
-  resource_group_name = azurerm_resource_group.rg[each.key].name
+  location            = azurerm_resource_group.mcitrg[each.key].location
+  resource_group_name = azurerm_resource_group.mcitrg[each.key].name
   service_plan_id     = azurerm_service_plan.plan[each.key].id
   https_only          = true
 
