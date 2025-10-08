@@ -53,17 +53,6 @@ resource "azurerm_container_registry" "mcitprefix_acr" {
   admin_enabled       = true
 }
 
-resource "azurerm_machine_learning_compute_cluster" "mcitprefix_cpu" {
-  name                          = "${var.prefix}-cpu"
-  location                      = azurerm_resource_group.mcitprefix_rg.location
-  machine_learning_workspace_id = azurerm_machine_learning_workspace.mcitprefix_ws.id
-  vm_size                       = "STANDARD_DS3_V2"
-
-  scale_settings {
-    min_node_count = 0
-    max_node_count = 1
-  }
-}
 
 
 resource "azurerm_key_vault_access_policy" "mcitprefix_kv_policy" {
