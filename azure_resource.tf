@@ -8,6 +8,10 @@ variable "location"{
 type=string
 default="Canada Central"
 }
+variable "prefix" {
+ type    = string
+ default = "montrealitcollege"
+}
 
 resource "azurerm_resource_group" "mcitprefix_rg" {
   name     = "mcitrg"
