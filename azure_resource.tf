@@ -53,18 +53,18 @@ resource "azurerm_container_registry" "mcitprefix_acr" {
   admin_enabled       = true
 }
 
-resource "azurerm_machine_learning_workspace" "mcitprefix_ws" {
-  name                = "${var.prefix}-ws"
-  location            = azurerm_resource_group.mcitprefix_rg.location
-  resource_group_name = azurerm_resource_group.mcitprefix_rg.name
-  storage_account_id      = azurerm_storage_account.mcitprefix_sa.id
-  key_vault_id            = azurerm_key_vault.mcitprefix_kv.id
-  application_insights_id = azurerm_application_insights.mcitprefix_appi.id
-  container_registry_id   = azurerm_container_registry.mcitprefix_acr.id
-  identity { type = "SystemAssigned" }
-  description                   = "Terraform-provisioned Azure ML workspace"
-  public_network_access_enabled = true
+resource "azurerm_machine_learning_compute_cluster" "mcitprefix_cpu" {
+  name                          = "${var.prefix}-cpu"
+  location                      = azurerm_resource_group.mcitprefix_rg.location
+  machine_learning_workspace_id = azurerm_machine_learning_workspace.mcitprefix_ws.id
+  vm_size                       = "STANDARD_DS3_V2"
+
+  scale_settings {
+    min_node_count = 0
+    max_node_count = 1
+  }
 }
+
 
 resource "azurerm_key_vault_access_policy" "mcitprefix_kv_policy" {
   key_vault_id = azurerm_key_vault.mcitprefix_kv.id
