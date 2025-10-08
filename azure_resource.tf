@@ -79,12 +79,12 @@ resource "azurerm_machine_learning_compute_cluster" "mcitprefix_cpu" {
   machine_learning_workspace_id = azurerm_machine_learning_workspace.mcitprefix_ws.id
 
   vm_size     = "STANDARD_DS3_V2"
-  vm_priority = "Dedicated"          # or "Spot" for lower $ but preemptible
+  vm_priority = "Dedicated"         
 
   scale_settings {
     min_node_count                         = 0
     max_node_count                         = 1
-    scale_down_nodes_after_idle_duration   = "PT15M"  # ISO8601: 15 minutes
+    scale_down_nodes_after_idle_duration   = "PT15M" 
   }
 }
 output "resource_group_name" { value = azurerm_resource_group.mcitprefix_rg.name }
