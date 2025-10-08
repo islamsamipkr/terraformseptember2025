@@ -4,6 +4,10 @@ resource "random_string" "mcitprefix_random" {
   upper   = false
   special = false
 }
+variable "location"{
+type=string
+default="Canada Central"
+}
 
 resource "azurerm_resource_group" "mcitprefix_rg" {
   name     = "mcitrg"
